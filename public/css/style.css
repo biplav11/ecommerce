@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 95%;
+  margin: auto;
+}
+
+.logo {
+  height: 70px;
+  width: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+main {
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+}
+
+form {
+  width: 100%;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.listing {
+  width: 100%;
+}
+
+.ant-card-body {
+  padding: 15px;
+}
+.ant-card-body h2 {
+  padding-top: 5px;
+  margin: 0;
+}
+
+.full {
+  width: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background: white;
+}
+header nav {
+  height: 70px;
+  border-bottom: 1px solid #ddd;
+}
+
+.social {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  margin-right: 50px;
+}
+.social li {
+  display: inline-block;
+}
+.social li a {
+  font-size: 24px;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  background: #ef3f3f;
+  color: white;
+  border-radius: 20px;
+  margin: 15px 10px;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in-out 0.3s;
+}
+.social li a:hover {
+  background: #ae2525;
+}
+
+div.menu {
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+}
+div.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  max-width: 95%;
+}
+div.menu ul li {
+  display: inline-block;
+  line-height: 40px;
+  margin-right: 20px;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  line-height: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */
