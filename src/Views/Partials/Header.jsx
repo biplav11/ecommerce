@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import { Row, Col, Icon } from 'antd';
+import { Row, Col, Icon, Button, Typography, Modal } from 'antd';
 import {Link} from 'react-router-dom'
 import Axios from 'axios';
+import auth from '../../auth';
+
+const { Text } = Typography;
 
 export default class Header extends Component {
     state = {
@@ -14,6 +17,19 @@ export default class Header extends Component {
                 categories: data.data
             })
         })
+    }
+    handleClick = () => {
+        Modal.confirm({
+            title: 'Are you sure you want to Logout?',
+            onOk() {
+              auth.signout(() => {
+                  window.location.reload();
+              })
+            },
+            onCancel() {
+              console.log('Cancel');
+            },
+          });
     }
     render() {
         return (
@@ -45,6 +61,12 @@ export default class Header extends Component {
                             })
                         }
                         <li><Link to="/contact">Contact</Link></li>
+                        {
+                            auth.isAuthenticated === "true" ?
+                            <li><Button type="link" onClick={this.handleClick}><Text type="danger">Logout</Text></Button></li> :
+                            <li><Link to="/login">Login</Link></li>
+                        }
+                        
                     </ul>
                 </div>
             </header>

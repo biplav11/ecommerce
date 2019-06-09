@@ -12,6 +12,7 @@ export default class Listing extends Component {
         products: []
     }
     componentDidMount(){
+        console.log(qs.parse(this.props.location.search).q);
         Axios.get('http://5b8971636b7dcb0014d5f3f1.mockapi.io/products')
         .then((data) => {
             let searchText = qs.parse(this.props.location.search).q;
@@ -28,7 +29,7 @@ export default class Listing extends Component {
         return (
             <MainLayout>
                 <div className="listing">
-                    <h1>All Products</h1>
+                    <h1>Searching for "{qs.parse(this.props.location.search).q}"</h1>
                     <Row gutter={30}>
                         {
                             products.length === 0 ? 
