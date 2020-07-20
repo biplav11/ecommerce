@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import MainLayout from './Layouts/MainLayout';
-import {Input, Icon, Row, Col, Button, Modal} from 'antd'
+import { Input, Icon, Row, Col, Button, Modal } from 'antd'
 import auth from '../auth';
-import {Redirect} from 'react-router-dom'
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
     state = {
@@ -12,8 +13,8 @@ export default class Login extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        let {email, password} = this.state
-        if(email === 'biplav@basobaas.com' && password === '123456'){
+        let { email, password } = this.state
+        if (email === 'biplav@basobaas.com' && password === '123456') {
             auth.login(() => {
                 Modal.success({
                     title: 'This is a success message',
@@ -21,7 +22,7 @@ export default class Login extends Component {
                 });
                 window.location.reload();
             })
-        }else{
+        } else {
             Modal.error({
                 title: 'This is an error message',
                 content: 'some messages...some messages...',
@@ -30,46 +31,46 @@ export default class Login extends Component {
     }
     handleChange = (e) => {
         this.setState({
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
     }
     render() {
-        
+
         let { from } = this.props.location.state || { from: { pathname: "/" } };
         let { redirectToReferrer } = this.state;
-        if(redirectToReferrer){
-            return <Redirect to={from}/>
+        if (redirectToReferrer) {
+            return <Redirect to={from} />
         }
         return (
             <MainLayout>
-                <form className="contact-form" style={{width: '50%'}} onSubmit={this.handleSubmit}>
+                <form className="contact-form" style={{ width: '50%' }} onSubmit={this.handleSubmit}>
                     <h1>Login to Continue</h1>
                     <Row gutter={15}>
                         <Col span={12}>
                             <Input
                                 placeholder="Enter your email"
-                                prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                prefix={<UserOutlined className="site-form-item-icon" />}
                                 name="email"
                                 type="email"
                                 required={true}
                                 onChange={this.handleChange}
-                                value = {this.state.email}
+                                value={this.state.email}
                             />
                         </Col>
                         <Col span={12}>
                             <Input
                                 placeholder="Enter your email"
-                                prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                prefix={<LockOutlined className="site-form-item-icon" />}
                                 name="password"
                                 type="password"
                                 required={true}
                                 onChange={this.handleChange}
-                                value = {this.state.password}
+                                value={this.state.password}
                             />
                         </Col>
                         <Col span={12}>
-                        <Button type="primary" htmlType="submit" className="login-form-button" style={{marginTop: 10}}>
-                            Login
+                            <Button type="primary" htmlType="submit" className="login-form-button" style={{ marginTop: 10 }}>
+                                Login
                         </Button>
                         </Col>
                     </Row>
